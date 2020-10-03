@@ -3,7 +3,7 @@ var form = d3.select('form');
 
 // TABLE BUILDING FUNCTION
 buildTable = function(x) {
-    
+
     // Build striped table skeleton
     let table = d3.select('#tableSpace').append('table').attr('class', 'table table-striped')
     let thead = table.append('thead');
