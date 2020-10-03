@@ -4,19 +4,19 @@ buildTable = function() {
 
     d3.event.preventDefault();
 
-    var input = d3.select("#dateform").property("value") 
+    let input = d3.select("#dateform").property("value") 
 
-    var filteredData = data.filter(d => d.datetime === input);
+    let filteredData = data.filter(d => d.datetime.includes(input));
 
-    console.log(filteredData);
+    d3.select('table').remove();
 
-    var table = d3.select('#tableSpace').append('table').attr('class', 'table table-striped');
-    var thead = table.append('thead');
-    var tbody = table.append('tbody');
+    let table = d3.select('#tableSpace').append('table').attr('class', 'table table-striped')
+    let thead = table.append('thead');
+    let tbody = table.append('tbody');
 
-    var headers = data.map(d => Object.keys(d))[0];
+    let headers = data.map(d => Object.keys(d))[0];
 
-    var headerRow = thead.append('tr')
+    let headerRow = thead.append('tr')
         .selectAll('th')
         .data(headers)
         .enter()
@@ -40,6 +40,6 @@ buildTable = function() {
 //     var filteredData = data.filter(d => d.datetime.slice(1, -2) === input);
 // }
 
-form.on("submit",buildTable);
+form.on('keyup',buildTable);
 // buildTable();
 // console.log(table);
