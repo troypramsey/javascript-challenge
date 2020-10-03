@@ -16,7 +16,7 @@ buildTable = function(x) {
         .data(headers)
         .enter()
         .append('th')
-        .text(d => d);
+        .text(d => d[0].toUpperCase()+d.slice(1));
 
     // Build rows and columns using filtered data
     x.forEach(d => {

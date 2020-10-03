@@ -11,5 +11,5 @@ form {
 #tableSpace {
     width: 80%;
     margin: auto;
-    padding: 25px;
+    padding: 25px 0 25px 0;
 }
