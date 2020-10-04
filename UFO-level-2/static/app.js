@@ -41,8 +41,16 @@ handleFilter = function() {
     d3.event.preventDefault();
 
     // Builds filtered data from form input
-    let input = d3.select("#dateform").property("value") 
-    let filteredData = data.filter(d => d.datetime.includes(input));
+    let dateInput = d3.select("#dateform").property("value")
+    let cityInput = d3.select("#cityform").property("value") 
+    let stateInput = d3.select("#stateform").property("value") 
+    let countryInput = d3.select("#countryform").property("value") 
+    let shapeInput = d3.select("#shapeform").property("value") 
+    let filteredData = data.filter(d => d.datetime.includes(dateInput))
+    .filter(d => d.city.includes(cityInput))
+    .filter(d => d.state.includes(stateInput))
+    .filter(d => d.country.includes(countryInput))
+    .filter(d => d.shape.includes(shapeInput));
 
     // Build new filtered table
     buildTable(filteredData)
